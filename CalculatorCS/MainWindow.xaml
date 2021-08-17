@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:CalculatorCS"
         mc:Ignorable="d"
         WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
         Height="900" Width="640">
     <Border Background="#44494C"
             CornerRadius="20">
@@ -38,6 +40,10 @@
                    Margin="15,0"
                    FontSize="13"
                    Foreground="White" FontFamily="Consolas"/>
+            
+            <Button Grid.Row="1" Grid.Column="0" Foreground="White"
+                    FontSize="28"
+                    Style="{StaticResource NumberButtonTheme}">_7</Button>
             
         </Grid>
     </Border>
