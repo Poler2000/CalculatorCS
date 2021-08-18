@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="CalculatorCS.MVVM.Views.SimpleSidePanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CalculatorCS.MVVM.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0"
+            Style="{StaticResource ArithmeticButtonTheme}"
+            Content="C"/>
+        <Button Grid.Row="1"
+            Style="{StaticResource ArithmeticButtonTheme}"
+            Content="&lt;"/>
+        <Button Grid.Row="2"
+            Style="{StaticResource ArithmeticButtonTheme}"
+            Content="^"/>
+        <Button Grid.Row="3"
+            Style="{StaticResource ArithmeticButtonTheme}"
+            Content="&#x221A;"/>
+        <Button Grid.Row="4"
+            Style="{StaticResource ArithmeticButtonTheme}"
+            Content="+/-"/>
+    </Grid>
+        
+</UserControl>

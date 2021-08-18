@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CalculatorCS"
+             xmlns:viewModel="clr-namespace:CalculatorCS.MVVM.ViewModels"
+             xmlns:views="clr-namespace:CalculatorCS.MVVM.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          <ResourceDictionary>
@@ -10,6 +12,14 @@
                  <ResourceDictionary Source="Themes/NumberButtonTheme.xaml"/>
                  <ResourceDictionary Source="Themes/ArithmeticButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
+             
+             <DataTemplate DataType="{x:Type viewModel:BasicButtonsViewModel}">
+                 <views:BasicButtonsView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:SimpleSidePanelViewModel}">
+                 <views:SimpleSidePanelView></views:SimpleSidePanelView>
+             </DataTemplate>
          </ResourceDictionary>
     </Application.Resources>
 </Application>
