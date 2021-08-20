@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7491AD76-79F3-4544-9EE2-5719ECB6DB01}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CalculatorCS</RootNamespace>
     <AssemblyName>CalculatorCS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -63,33 +63,46 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\Views\AdvancedModeView.xaml" />
     <Page Include="MVVM\Views\AdvancedSidePanelView.xaml" />
     <Page Include="MVVM\Views\BasicButtonsView.xaml" />
+    <Page Include="MVVM\Views\BasicModeView.xaml" />
     <Page Include="MVVM\Views\ScreenView.xaml" />
     <Page Include="MVVM\Views\SimpleSidePanelView.xaml" />
     <Page Include="Themes\ArithmeticButtonTheme.xaml" />
     <Page Include="Themes\CalculatorButtonTheme.xaml" />
     <Page Include="Themes\CalculatorScreenTheme.xaml" />
+    <Page Include="Themes\ComboBoxTheme.xaml" />
     <Page Include="Themes\NumberButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Models\Modes.cs" />
+    <Compile Include="MVVM\ViewModels\AdvancedModeViewModel.cs" />
     <Compile Include="MVVM\ViewModels\AdvancedSidePanelViewModel.cs" />
     <Compile Include="MVVM\ViewModels\BasicButtonsViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\BasicModeViewModel.cs" />
     <Compile Include="MVVM\ViewModels\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModels\ScreenViewModel.cs" />
     <Compile Include="MVVM\ViewModels\SimpleSidePanelViewModel.cs" />
+    <Compile Include="MVVM\Views\AdvancedModeView.xaml.cs">
+      <DependentUpon>AdvancedModeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Views\AdvancedSidePanelView.xaml.cs">
       <DependentUpon>AdvancedSidePanelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Views\BasicButtonsView.xaml.cs">
       <DependentUpon>BasicButtonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\BasicModeView.xaml.cs">
+      <DependentUpon>BasicModeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Views\ScreenView.xaml.cs">
       <DependentUpon>ScreenView.xaml</DependentUpon>

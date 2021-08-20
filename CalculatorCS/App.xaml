@@ -11,6 +11,7 @@
                  <ResourceDictionary Source="Themes/CalculatorButtonTheme.xaml"/>
                  <ResourceDictionary Source="Themes/NumberButtonTheme.xaml"/>
                  <ResourceDictionary Source="Themes/ArithmeticButtonTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ComboBoxTheme.xaml"/> 
              </ResourceDictionary.MergedDictionaries>
              
              <DataTemplate DataType="{x:Type viewModel:BasicButtonsViewModel}">
@@ -18,7 +19,23 @@
              </DataTemplate>
              
              <DataTemplate DataType="{x:Type viewModel:SimpleSidePanelViewModel}">
-                 <views:SimpleSidePanelView></views:SimpleSidePanelView>
+                 <views:SimpleSidePanelView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:ScreenViewModel}">
+                 <views:ScreenView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:AdvancedSidePanelViewModel}">
+                 <views:AdvancedSidePanelView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:AdvancedModeViewModel}">
+                 <views:AdvancedModeView/>
+             </DataTemplate>
+             
+             <DataTemplate DataType="{x:Type viewModel:BasicModeViewModel}">
+                 <views:BasicModeView/>
              </DataTemplate>
          </ResourceDictionary>
     </Application.Resources>

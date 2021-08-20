@@ -9,7 +9,8 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
-        Height="900" Width="640">
+        Height="900" Width="640"
+        FontFamily="Consolas">
 
     <Window.DataContext>
         <viewModels:MainViewModel></viewModels:MainViewModel>
@@ -45,14 +46,17 @@
                    VerticalAlignment="Center"
                    Margin="15,0"
                    FontSize="13"
-                   Foreground="White" FontFamily="Consolas"/>
+                   Foreground="White"/>
             
-            <ContentControl Grid.Row="3" Grid.Column="0" 
-                            Grid.RowSpan="4" Grid.ColumnSpan="4"
-                            Content="{Binding BasicButtonsVm}"/>
-            <ContentControl Grid.Row="3" Grid.Column="4"
-                            Grid.RowSpan="4" Grid.ColumnSpan="2"
-                            Content="{Binding SimpleSidePanelVm}"/>
+            <ContentControl Grid.Row="1" Grid.Column="0" 
+                            Grid.ColumnSpan="6"
+                            Margin="10, 0"
+                            Content="{Binding ScreenVm}"/>
+            
+            <ContentControl Grid.Row="2" Grid.Column="0"
+                            Grid.RowSpan="6" Grid.ColumnSpan="6"
+                            Content="{Binding CurrentPanelVm}"></ContentControl>
+            
             
         </Grid>
     </Border>

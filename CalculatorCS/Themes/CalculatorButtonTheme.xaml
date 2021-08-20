@@ -17,8 +17,8 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10, 20"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontFamily" Value="Consolas"/>
         </Style.Setters>
         <Style.Triggers>

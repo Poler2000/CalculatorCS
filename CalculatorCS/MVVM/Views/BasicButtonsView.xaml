@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CalculatorCS.MVVM.Views"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
