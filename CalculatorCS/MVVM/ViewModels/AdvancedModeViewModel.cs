@@ -7,18 +7,6 @@ namespace CalculatorCS.MVVM.ViewModels
     {
         public BasicButtonsViewModel BasicButtonsVm { get; set; }
         public AdvancedSidePanelViewModel AdvancedSidePanelVm { get; set; }
-        
-        private string _selectedMode = Modes.Advanced.ToString();
-        public string SelectedMode
-        {
-            get => _selectedMode;
-            set
-            {
-                if (_selectedMode == value) return;
-                _selectedMode = value;
-                OnPropertyChanged();
-            }
-        }
 
         public AdvancedModeViewModel()
         {

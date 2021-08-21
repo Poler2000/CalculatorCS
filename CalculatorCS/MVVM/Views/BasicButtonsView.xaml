@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CalculatorCS.MVVM.Views"
+             xmlns:viewModels="clr-namespace:CalculatorCS.MVVM.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+        <UserControl.DataContext>
+                <viewModels:BasicButtonsViewModel></viewModels:BasicButtonsViewModel>
+        </UserControl.DataContext>
         <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,44 +26,55 @@
         </Grid.RowDefinitions>
         
         <!-- Row 1 -->
-        <Button Grid.Row="0" Grid.Column="0"
-                Style="{StaticResource NumberButtonTheme}">_7</Button>
+        <Button Name="Button7" Grid.Row="0" Grid.Column="0"
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }"
+                CommandParameter="{x:Reference Button7}">7</Button>
         <Button Grid.Row="0" Grid.Column="1"
-                Style="{StaticResource NumberButtonTheme}">_8</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">8</Button>
         <Button Grid.Row="0" Grid.Column="2"
-                Style="{StaticResource NumberButtonTheme}">_9</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">9</Button>
         <Button Grid.Row="0" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">_*</Button>
+                Style="{StaticResource NumberButtonTheme}">*</Button>
         
         <!-- Row 2 -->
         <Button Grid.Row="1" Grid.Column="0"
-                Style="{StaticResource NumberButtonTheme}">_4</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">4</Button>
         <Button Grid.Row="1" Grid.Column="1"
-                Style="{StaticResource NumberButtonTheme}">_5</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">5</Button>
         <Button Grid.Row="1" Grid.Column="2"
-                Style="{StaticResource NumberButtonTheme}">_6</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">6</Button>
         <Button Grid.Row="1" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">_+</Button>
+                Style="{StaticResource NumberButtonTheme}">+</Button>
         
         <!-- Row 3 -->
         <Button Grid.Row="2" Grid.Column="0"
-                Style="{StaticResource NumberButtonTheme}">_1</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">1</Button>
         <Button Grid.Row="2" Grid.Column="1"
-                Style="{StaticResource NumberButtonTheme}">_2</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">2</Button>
         <Button Grid.Row="2" Grid.Column="2"
-                Style="{StaticResource NumberButtonTheme}">_3</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">3</Button>
         <Button Grid.Row="2" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">_-</Button>
+                Style="{StaticResource NumberButtonTheme}">-</Button>
         
         <!-- Row 4 -->
         <Button Grid.Row="3" Grid.Column="0"
-                Style="{StaticResource NumberButtonTheme}">_0</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding NumberCommand }">0</Button>
         <Button Grid.Row="3" Grid.Column="1"
-                Style="{StaticResource NumberButtonTheme}">_.</Button>
+                Style="{StaticResource NumberButtonTheme}">.</Button>
         <Button Grid.Row="3" Grid.Column="2"
-                Style="{StaticResource NumberButtonTheme}">_/</Button>
+                Style="{StaticResource NumberButtonTheme}">/</Button>
         <Button Grid.Row="3" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">_=</Button>
+                Style="{StaticResource NumberButtonTheme}">=</Button>
 
     </Grid>
 </UserControl>

@@ -24,6 +24,7 @@ namespace CalculatorCS
         public MainWindow()
         {
             InitializeComponent();
+            ModeComboBox.ItemsSource = Enum.GetNames(typeof(Modes));
         }
     }
 }

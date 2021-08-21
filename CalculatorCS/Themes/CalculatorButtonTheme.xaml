@@ -17,7 +17,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Margin" Value="10, 20"/>
+            <Setter Property="MaxHeight" Value="120"></Setter>
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontFamily" Value="Consolas"/>
         </Style.Setters>

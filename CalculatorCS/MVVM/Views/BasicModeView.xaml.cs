@@ -9,7 +9,6 @@ namespace CalculatorCS.MVVM.Views
         public BasicModeView()
         {
             InitializeComponent();
-            ModeComboBox.ItemsSource = Enum.GetNames(typeof(Modes));
         }
     }
 }
