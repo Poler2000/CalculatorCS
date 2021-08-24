@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using CalculatorCS.Core;
 using CalculatorCS.MVVM.Models;
 using CalculatorCS.MVVM.ViewModels;

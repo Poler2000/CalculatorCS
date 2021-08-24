@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CalculatorCS.MVVM.Views"
+             xmlns:viewModels="clr-namespace:CalculatorCS.MVVM.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModels:ScreenViewModel></viewModels:ScreenViewModel>
+    </UserControl.DataContext>
     <Border Background="#AAA"
             CornerRadius="20">
         <Grid>
@@ -16,14 +20,14 @@
             </Grid.RowDefinitions>
         
             <TextBlock Grid.Row="0" Grid.RowSpan="2"
-                       Text="2edsweaeaaewf" 
+                       Text="{Binding MainMsg}"
                        TextAlignment="Left" 
                        Margin="20,0" 
                        VerticalAlignment="Center"
                        FontSize="30"
                        FontFamily="Consolas"/>
             <TextBlock Grid.Row="2" 
-                       Text="efewfewf" 
+                       Text="{Binding SecondaryMsg}" 
                        TextAlignment="Right" 
                        Margin="10, 0" 
                        VerticalAlignment="Center"

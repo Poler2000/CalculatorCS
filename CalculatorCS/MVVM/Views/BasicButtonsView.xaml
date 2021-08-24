@@ -26,49 +26,58 @@
         </Grid.RowDefinitions>
         
         <!-- Row 1 -->
-        <Button Name="Button7" Grid.Row="0" Grid.Column="0"
+        <Button Grid.Row="0" Grid.Column="0"
                 Style="{StaticResource NumberButtonTheme}"
                 Command="{Binding NumberCommand }"
-                CommandParameter="{x:Reference Button7}">7</Button>
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">7</Button>
         <Button Grid.Row="0" Grid.Column="1"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">8</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">8</Button>
         <Button Grid.Row="0" Grid.Column="2"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">9</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">9</Button>
         <Button Grid.Row="0" Grid.Column="3"
                 Style="{StaticResource NumberButtonTheme}">*</Button>
         
         <!-- Row 2 -->
         <Button Grid.Row="1" Grid.Column="0"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">4</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">4</Button>
         <Button Grid.Row="1" Grid.Column="1"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">5</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">5</Button>
         <Button Grid.Row="1" Grid.Column="2"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">6</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">6</Button>
         <Button Grid.Row="1" Grid.Column="3"
                 Style="{StaticResource NumberButtonTheme}">+</Button>
         
         <!-- Row 3 -->
         <Button Grid.Row="2" Grid.Column="0"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">1</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">1</Button>
         <Button Grid.Row="2" Grid.Column="1"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">2</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">2</Button>
         <Button Grid.Row="2" Grid.Column="2"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">3</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">3</Button>
         <Button Grid.Row="2" Grid.Column="3"
                 Style="{StaticResource NumberButtonTheme}">-</Button>
         
         <!-- Row 4 -->
         <Button Grid.Row="3" Grid.Column="0"
                 Style="{StaticResource NumberButtonTheme}"
-                Command="{Binding NumberCommand }">0</Button>
+                Command="{Binding NumberCommand }"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">0</Button>
         <Button Grid.Row="3" Grid.Column="1"
                 Style="{StaticResource NumberButtonTheme}">.</Button>
         <Button Grid.Row="3" Grid.Column="2"

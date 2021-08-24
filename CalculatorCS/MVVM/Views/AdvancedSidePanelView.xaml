@@ -4,9 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CalculatorCS.MVVM.Views"
+             xmlns:viewModels="clr-namespace:CalculatorCS.MVVM.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    
+        <UserControl.DataContext>
+                <viewModels:AdvancedSidePanelViewModel></viewModels:AdvancedSidePanelViewModel>
+        </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,13 +31,18 @@
         <!-- Row 1 -->
         <Button Grid.Row="0" Grid.Column="0" 
                 Content="sin"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
         <Button Grid.Row="0" Grid.Column="1" 
                 Content="cos"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
         <Button Grid.Row="0" Grid.Column="2" 
                 Content="tg"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
         <Button Grid.Row="0" Grid.Column="3" 
                 Content="|"
                 Style="{StaticResource ArithmeticButtonTheme}"/>
@@ -48,16 +56,21 @@
         <!-- Row 2 -->
         <Button Grid.Row="1" Grid.Column="0" 
                 Content="arcsin"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
         <Button Grid.Row="1" Grid.Column="1" 
                 Content="arccos"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="arccos"/>
         <Button Grid.Row="1" Grid.Column="2" 
                 Content="arctg"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
         <Button Grid.Row="1" Grid.Column="3" 
                 Content="^"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                />
         <Button Grid.Row="1" Grid.Column="4" 
                 Content="("
                 Style="{StaticResource ArithmeticButtonTheme}"/>
