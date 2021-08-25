@@ -40,9 +40,12 @@ namespace CalculatorCS.MVVM.ViewModels
             if (SelectedMode == Modes.Advanced.ToString())
             {
                 CurrentPanelVm = new AdvancedModeViewModel();
+                CalculationServer.GetInstance().CurrentMode = Modes.Advanced;
                 return;
             }
             CurrentPanelVm = new BasicModeViewModel();
+            CalculationServer.GetInstance().CurrentMode = Modes.Basic;
+
         }
 
         public ScreenViewModel ScreenVm { get; set; }

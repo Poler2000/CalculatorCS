@@ -12,6 +12,7 @@ namespace CalculatorCS.Core
 
         public static async Task<Result> IssueCalculation(string expression, string operation)
         {
+            expression = MathParser.Encode(expression);
             var resultStream = Client.GetStreamAsync(BaseAddress + operation + '/' + expression);
             var result = await JsonSerializer.DeserializeAsync<Result>(await resultStream);
             return result;

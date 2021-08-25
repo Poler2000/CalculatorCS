@@ -7,7 +7,7 @@ namespace CalculatorCS.Core
 {
     public class CalculationServer : ObservableObject
     {
-        public delegate void Callback(string mainMsg, string secondaryMsg);
+        public delegate void Callback(string msg);
         public delegate string Arithmetic(string x, string y);
 
         public Modes CurrentMode { get; set; }
@@ -16,8 +16,8 @@ namespace CalculatorCS.Core
         private readonly StringBuilder _secondArgument = new StringBuilder();
         private bool IsOperationActive => ActiveOperation.Length > 0;
         private string ActiveOperation { get; set; } = string.Empty;
-        public Callback OnResult { get; set; }
-        public Callback OnError { get; set; }
+        public Callback MainScreenCallback { get; set; }
+        public Callback SecondaryScreenCallback { get; set; }
 
         private CalculationServer()
         {
@@ -26,16 +26,16 @@ namespace CalculatorCS.Core
 
         public void ProvideNumber(string number)
         {
-            Console.WriteLine("Number");
             if (IsOperationActive)
             {
                 _secondArgument.Append(number);
-                OnResult(_firstArgument.ToString(), _secondArgument.ToString());
+                MainScreenCallback(_secondArgument.ToString());
+                SecondaryScreenCallback(_firstArgument + ActiveOperation);
                 return;
             }
 
             _firstArgument.Append(number);
-            OnResult(_firstArgument.ToString(), _secondArgument.ToString());
+            MainScreenCallback(_firstArgument.ToString());
         }
 
         public void ProvideArithmeticOperation(string operation)
@@ -48,18 +48,20 @@ namespace CalculatorCS.Core
                         SimpleCalculator.Calculate(_firstArgument.ToString(), _secondArgument.ToString(), ActiveOperation);
 
                     ActiveOperation = string.Empty;
+
+                    MainScreenCallback(result.ResultValue);
+                    SecondaryScreenCallback(result.Expression);
                     
                     if (result.IsError)
                     { 
                         Clear();
-                        OnError(result.ResultValue, result.Expression);
                         return;
                     }
-
-                    OnResult(result.ResultValue, result.Operation);
                 }
 
                 ActiveOperation = operation;
+                MainScreenCallback(string.Empty);
+                SecondaryScreenCallback(_firstArgument.ToString() + ActiveOperation);
                 _secondArgument.Clear();
                 return;
             }
@@ -69,19 +71,39 @@ namespace CalculatorCS.Core
 
         public void Calculate(string operation = "simplify")
         {
-            if (_firstArgument.Length > 0)
+            if (CurrentMode == Modes.Advanced)
             {
-                Task.Run(() =>
+                if (_firstArgument.Length > 0)
                 {
-                    Console.WriteLine("Hello");
-                    var res = NewtonApi.IssueCalculation(_firstArgument.ToString(), operation);
-                    if (res.Result is null)
+                    Task.Run(() =>
                     {
-                        Console.WriteLine("NULL");
-                        return;
-                    }
-                    Console.WriteLine("Hello You: {0}", res.Result.ResultValue);
-                });
+                        var res = NewtonApi.IssueCalculation(_firstArgument.ToString(), operation);
+                        if (res.Result is null)
+                        {
+                            Console.WriteLine("NULL");
+                            return;
+                        }
+
+                        Console.WriteLine("NOT NULL");
+                        MainScreenCallback(res.Result.ResultValue);
+                        SecondaryScreenCallback(res.Result.ResultValue);
+                    });
+                }
+                return;
+            }
+
+            if (!IsOperationActive) return;
+            var result =
+                SimpleCalculator.Calculate(_firstArgument.ToString(), _secondArgument.ToString(), ActiveOperation);
+
+            ActiveOperation = string.Empty;
+
+            MainScreenCallback(result.ResultValue);
+            SecondaryScreenCallback(result.Expression);
+                    
+            if (result.IsError)
+            { 
+                Clear();
             }
         }
 
@@ -90,6 +112,8 @@ namespace CalculatorCS.Core
             _firstArgument.Clear();
             _secondArgument.Clear();
             ActiveOperation = string.Empty;
+            MainScreenCallback(string.Empty);
+            SecondaryScreenCallback(string.Empty);
         }
 
         public void Backspace()
@@ -97,9 +121,12 @@ namespace CalculatorCS.Core
             if (IsOperationActive)
             {
                 _secondArgument.Remove(_secondArgument.Length - 1, 1);
+                MainScreenCallback(_secondArgument.ToString());
+
                 return;
             }
             _firstArgument.Remove(_firstArgument.Length - 1, 1);
+            MainScreenCallback(_firstArgument.ToString());
         }
 
         private static readonly CalculationServer Instance = new CalculationServer();

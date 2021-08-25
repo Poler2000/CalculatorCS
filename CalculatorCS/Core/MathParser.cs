@@ -1,4 +1,7 @@
-﻿namespace CalculatorCS.Core
+﻿using System.Net;
+using System.Text;
+
+namespace CalculatorCS.Core
 {
     public class MathParser
     {
@@ -19,6 +22,15 @@
                 default:
                     return BasicMath.DoNothing;
             }
+        }
+
+        public static string Encode(string expression)
+        {
+            StringBuilder encoded = new StringBuilder(expression);
+            encoded.Replace("/", "(over)");
+            encoded.Replace("^", "%5E");
+            encoded.Replace("+", "%2B");
+            return encoded.ToString();
         }
     }
 }

@@ -39,6 +39,8 @@
                 Command="{Binding NumberCommand }"
                 CommandParameter="{Binding RelativeSource={RelativeSource Self}}">9</Button>
         <Button Grid.Row="0" Grid.Column="3"
+                Command="{Binding ArithmeticCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                 Style="{StaticResource NumberButtonTheme}">*</Button>
         
         <!-- Row 2 -->
@@ -55,7 +57,9 @@
                 Command="{Binding NumberCommand }"
                 CommandParameter="{Binding RelativeSource={RelativeSource Self}}">6</Button>
         <Button Grid.Row="1" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">+</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding ArithmeticCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">+</Button>
         
         <!-- Row 3 -->
         <Button Grid.Row="2" Grid.Column="0"
@@ -71,7 +75,9 @@
                 Command="{Binding NumberCommand }"
                 CommandParameter="{Binding RelativeSource={RelativeSource Self}}">3</Button>
         <Button Grid.Row="2" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">-</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding ArithmeticCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">-</Button>
         
         <!-- Row 4 -->
         <Button Grid.Row="3" Grid.Column="0"
@@ -81,9 +87,12 @@
         <Button Grid.Row="3" Grid.Column="1"
                 Style="{StaticResource NumberButtonTheme}">.</Button>
         <Button Grid.Row="3" Grid.Column="2"
-                Style="{StaticResource NumberButtonTheme}">/</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding ArithmeticCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">/</Button>
         <Button Grid.Row="3" Grid.Column="3"
-                Style="{StaticResource NumberButtonTheme}">=</Button>
+                Style="{StaticResource NumberButtonTheme}"
+                Command="{Binding EqualsCommand}">=</Button>
 
     </Grid>
 </UserControl>

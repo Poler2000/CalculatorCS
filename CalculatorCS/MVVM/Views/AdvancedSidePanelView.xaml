@@ -10,7 +10,7 @@
         <UserControl.DataContext>
                 <viewModels:AdvancedSidePanelViewModel></viewModels:AdvancedSidePanelViewModel>
         </UserControl.DataContext>
-    <Grid>
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -33,31 +33,36 @@
                 Content="sin"
                 Style="{StaticResource ArithmeticButtonTheme}"
                 Command="{Binding OperationCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                CommandParameter="sin"/>
         <Button Grid.Row="0" Grid.Column="1" 
                 Content="cos"
                 Style="{StaticResource ArithmeticButtonTheme}"
                 Command="{Binding OperationCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                CommandParameter="cos"/>
         <Button Grid.Row="0" Grid.Column="2" 
                 Content="tg"
                 Style="{StaticResource ArithmeticButtonTheme}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                CommandParameter="tan"/>
         <Button Grid.Row="0" Grid.Column="3" 
                 Content="|"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter="|"/>
         <Button Grid.Row="0" Grid.Column="4" 
                 Content="C"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding ClearCommand}"/>
         <Button Grid.Row="0" Grid.Column="5" 
                 Content="&lt;"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding BackspaceCommand}"/>
         
         <!-- Row 2 -->
         <Button Grid.Row="1" Grid.Column="0" 
                 Content="arcsin"
                 Style="{StaticResource ArithmeticButtonTheme}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                Command="{Binding OperationCommand}"
+                CommandParameter="arcsin"/>
         <Button Grid.Row="1" Grid.Column="1" 
                 Content="arccos"
                 Style="{StaticResource ArithmeticButtonTheme}"
@@ -66,49 +71,71 @@
         <Button Grid.Row="1" Grid.Column="2" 
                 Content="arctg"
                 Style="{StaticResource ArithmeticButtonTheme}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"/>
+                Command="{Binding OperationCommand}"
+                CommandParameter="arctan"/>
         <Button Grid.Row="1" Grid.Column="3" 
                 Content="^"
                 Style="{StaticResource ArithmeticButtonTheme}"
-                />
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter="^"/>
         <Button Grid.Row="1" Grid.Column="4" 
                 Content="("
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter="("/>
         <Button Grid.Row="1" Grid.Column="5" 
                 Content=")"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter=")"/>
         
         <!-- Row 3 -->
         <Button Grid.Row="2" Grid.Column="4" 
                 Content="&#x221A;"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter="sqrt("/>
         <Button Grid.Row="2" Grid.Column="5" 
                 Content="'"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="derive"/>
 
         <!-- Row 4 -->
         <Button Grid.Row="3" Grid.Column="4" 
                 Content="log"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="log"/>
         <Button Grid.Row="3" Grid.Column="5" 
                 Content="x"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter="x"/>
 
         <!-- Row 5 -->
         <Button Grid.Row="4" Grid.Column="4" 
-                Content="&#x222B;"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Content=":"
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter=":"/>
         <Button Grid.Row="4" Grid.Column="5" 
                 Content="&#x03C0;"
+                Command="{Binding SpecialCharacterCommand}"
+                CommandParameter="pi"
                 Style="{StaticResource ArithmeticButtonTheme}"/>
 
         <!-- Row 6 -->
         <Button Grid.Row="5" Grid.Column="4" 
-                Content="&#x222B; int."
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Content="&#x222B;"
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="integrate"/>
         <Button Grid.Row="5" Grid.Column="5" 
                 Content="|x|"
-                Style="{StaticResource ArithmeticButtonTheme}"/>
+                Style="{StaticResource ArithmeticButtonTheme}"
+                Command="{Binding OperationCommand}"
+                CommandParameter="abs"/>
 
     </Grid>
 </UserControl>

@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace CalculatorCS.Core
 {
-    public class SimpleCalculator
+    public static class SimpleCalculator
     {
         private static bool IsBeyondRange(double result)
         {

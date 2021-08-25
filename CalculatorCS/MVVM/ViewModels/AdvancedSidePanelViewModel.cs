@@ -7,17 +7,32 @@ namespace CalculatorCS.MVVM.ViewModels
     public class AdvancedSidePanelViewModel
     {
         private CalculationServer Server { get; set; }
-    
+        public RelayCommand ClearCommand { get; set; }
+        public RelayCommand BackspaceCommand { get; set; }
+        public RelayCommand SpecialCharacterCommand { get; set; }
         public RelayCommand OperationCommand { get; set; }
 
         public AdvancedSidePanelViewModel()
         {
             Server = CalculationServer.GetInstance();
-            OperationCommand = new RelayCommand(o =>
+            OperationCommand = new RelayCommand(msg =>
             {
-                var button = o as Button;
-                Console.WriteLine("Performing: {0}", button?.Content);
-                Server.Calculate(button?.Content.ToString());
+                Server.Calculate(msg.ToString());
+            });
+            
+            ClearCommand = new RelayCommand(o =>
+            {
+                Server.Clear();
+            });
+
+            BackspaceCommand = new RelayCommand(o =>
+            {
+                Server.Backspace();
+            });
+
+            SpecialCharacterCommand = new RelayCommand(msg =>
+            {
+                Server.ProvideNumber(msg.ToString());
             });
         }
     }

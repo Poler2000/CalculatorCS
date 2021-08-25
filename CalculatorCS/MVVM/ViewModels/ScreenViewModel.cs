@@ -29,10 +29,14 @@ namespace CalculatorCS.MVVM.ViewModels
         
         public ScreenViewModel()
         {
-            CalculationServer.GetInstance().OnResult = ((msg, secondaryMsg) =>
+            CalculationServer.GetInstance().MainScreenCallback = (msg =>
             {
                 MainMsg = msg;
-                SecondaryMsg = secondaryMsg;
+            });
+
+            CalculationServer.GetInstance().SecondaryScreenCallback = (msg =>
+            {
+                SecondaryMsg = msg;
             });
         }
     }
